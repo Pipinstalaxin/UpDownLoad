@@ -1,0 +1,528 @@
+_lot101=#### LOT SIZE SETTINGS ####
+_lot000=---- Lot Size Calculation Method ----
+_lot001=     Choose how to determine order lot size
+_lot002=     -> Manual Input: Use manually specified lot size amount
+_lot003=     -> Auto Calculate: Calculate optimal lot size from equity automatically
+lot_size_method=1
+_lot010=---- Manual Input Lot Size Method Settings ----
+_lot011=     If using 'Manual Input' lot size method above
+_lot012=     Specify a manual lot size (0.01 - 0.09 = micro, 0.1 - 0.9 = mini, 1.0 - 9.0 = standard)
+lot_manual_size=0.1
+_lot020=---- Auto Calculate Lot Size Method Settings ----
+_lot021=     If using 'Auto Calculate' lot size method above
+_lot022=     Enter the percent of equity to risk when calculating lot size
+trade_size_percentage=5.0
+_par100= 
+_par101=#### PAIR SETTINGS ####
+_par000=---- Time Frame Settings ----
+_par001=     Choose the time frame to search for signals
+_par002=     Select 'Chart_TF' to use the chart's current TF (dynamic)
+base_tf=30
+_par010=     Force the robot to wait for a new opening bar before looking for trades?
+require_fresh_bar=false
+_par020=---- Spread Settings ----
+_par021=     The maximum acceptable spread (in pips) before halting new trades
+_par022=     Useful for avoiding new trades during news releases when spread widens
+_par023=     Enter 0 for no limit
+max_spread=8
+_acc100= 
+_acc101=#### ACCOUNT SETTINGS ####
+_acc000=---- Broker Settings ----
+_acc001=     Are you using an ECN broker?
+_acc002=     Can be enabled with non-ECN brokers as well without any issues
+_acc003=     Set to 'true' if unsure
+using_ecn_broker=true
+_acc010=---- Margin Check Settings ----
+_acc011=     Check account margin to prevent over trading?
+use_margin_checks=true
+_acc012=     If checking margin above, enter the lowest margin percentage level before halting new trades
+minimum_margin_percent=500
+_sls100= 
+_sls101=#### STOP LOSS SETTINGS ####
+_sls000=---- Stop Loss Method ----
+_sls001=     Choose how to determine a stop loss for orders
+_sls002=     -> No Stop Loss: Stop loss not used
+_sls003=     -> Manual Stop Loss: Use manually specified stop loss amount
+_sls004=     -> ATR Stop Loss: Calculates stop loss size using ATR levels
+_sls005=     -> Previous Candle Stop Loss: Set stop loss to a previous candle's high / low
+_sls006=     -> Indicator SL Levels: Use indicator provided levels for stop loss (BETA)
+sl_method=2
+_sls010=---- Manual Stop Loss Settings ----
+_sls011=     If using 'Manual Stop Loss' method above
+_sls012=     Enter a stop loss amount (in pips) here
+manual_sl_pips=30
+_sls020=---- ATR Stop Loss Settings ----
+_sls021=     If using 'ATR Stop Loss' method above
+_sls022=     Enter the period to use for ATR calculations
+atr_sl_period=20
+_sls030=---- Previous Candle Stop Loss Settings ----
+_sls031=     If using 'Previous Candle Stop Loss' method above
+_sls032=     Enter the amount of previous bars to search for a candle SL via high / low
+candle_sl_previous_bars=10
+_sls040=---- Global Stop Loss Settings ----
+_sls041=     Hide stop loss from broker?
+_sls042=     If enabled all stop losses will be held internally and orders will show an empty stop loss
+_sls043=     The EA will close out orders when the internal stop loss is hit (EA must be running)
+_sls044=     Hiding SL prevents your broker from doing stop loss hunts
+_sls045=     This will also apply to any Protective Stops you use below
+hide_sl=true
+_sls051=     All calculated stop losses (except Protective Stops) will be multiplied by this number regardless of method used
+_sls052=     You can quickly increase or decrease all calculated stop losses by adjusting this multiplier
+_sls053=     Enter 1 for no adjustment
+sl_multiplier=3
+_sls060=     Additional amount (in pips) to pad calculated stop losses
+_sls061=     Useful if your SLs are being rejected by your broker for being too close to market price
+sl_buffer_pips=0
+_tpr100= 
+_tpr101=#### TAKE PROFIT SETTINGS ####
+_tpr000=---- Take Profit Method ----
+_tpr001=     Choose how to determine a take profit for orders
+_tpr002=     -> No Take Profit: Take profit not used
+_tpr003=     -> Manual Take Profit: Use manually specified take profit amount
+_tpr004=     -> ATR Take Profit: Calculates take profit size using ATR levels
+_tpr005=     -> Percent of SL: Sets the TP to a percent of the order's stop loss
+_tpr006=     -> Indicator TP Levels: Use indicator provided levels for take profit (BETA)
+tp_method=3
+_tpr010=---- Manual Take Profit Settings ----
+_tpr011=     If using 'Manual Take Profit' method above
+_tpr012=     Enter a take profit amount (in pips) here
+manual_tp_pips=45
+_tpr020=---- ATR Take Profit Settings ----
+_tpr021=     If using 'ATR Take Profit' method above
+_tpr022=     Enter the period to use for ATR calculations
+atr_tp_period=20
+_tpr030=---- Percent of SL Take Profit Settings ----
+_tpr031=     If using 'Percent of SL' method above
+_tpr032=     Enter a percent of the order's SL to use as take profit
+_tpr033=     For this to work, you need to be using a 'Stop Loss Method' above
+_tpr034=     Ex: '50' for half of SL, '100' for exact match, '200' for double the SL
+tp_percent=150
+_tpr040=---- Global Take Profit Settings ----
+_tpr041=     Hide take profit from broker?
+_tpr042=     If enabled, all take profits will be held internally and orders will show an empty take profit
+_tpr043=     The EA will close out orders when the internal take profit is hit (EA must be running)
+_tpr044=     Hiding TP prevents your broker from doing price manipulation to avoid your take profits
+hide_tp=true
+_tpr051=     All calculated take profits will be multiplied by this number regardless of method used
+_tpr052=     You can quickly increase or decrease all calculated take profits by adjusting this multiplier
+_tpr053=     Enter 1 for no adjustment
+tp_multiplier=1
+_tpr060=     Additional amount (in pips) to pad calculated take profits
+_tpr061=     Useful if your TPs are being rejected by your broker for being too close to market price
+tp_buffer_pips=0
+_psm100= 
+_psm101=#### PROTECTIVE STOP SETTINGS ####
+_psm000=---- Protective Stop Method ----
+_psm001=     Choose how to move stop losses to secure pips when an order is in profit
+_psm002=     -> No Protective Stop: Do not use any Protective Stop
+_psm003=     -> Break Even: Move SL to order's open price after a certain amount of profit
+_psm004=     -> Candlestick Trailing Stop: Move SL to previous candle highs / lows as profit increases
+_psm005=     -> Jumping Stop: Move SL in set amounts as profit increases
+_psm006=     -> Trailing Stop: Move SL by a set amount to trail current price as profit increases
+ps_method=2
+_bev000=---- Break Even Settings ----
+_bev001=     If using any 'Break Even' method above or below
+_bev002=     Choose how to determine the required order profit (in pips) before the SL can be moved to Break Even
+_bev003=     -> Manual Input: Use manually specified Break Even amount
+_bev004=     -> ATR Method: Calculate dynamic Break Even amount from ATR automatically
+_bev005=     -> Percent of TP: Sets Break Even size to a percentage of the order's take profit
+break_even_method=0
+_bev010=     If using 'Manual Input' Break Even size method above
+_bev011=     Enter the required order profit (in pips) before the SL can be moved to Break Even
+_bev012=     This amount does not apply if using the Auto Calculate method
+break_even_required_pips=25
+_bev020=     If using 'ATR Method' Break Even size method above
+_bev021=     The calculated ATR Break Even amount will be multiplied by this number
+_bev022=     You can quickly increase or decrease the size of the Break Even by adjusting this multiplier
+_bev023=     Enter 1 for no adjustment
+break_even_atr_multiplier=1
+_bev030=     If using 'Percent of TP' Break Even size method above
+_bev031=     Enter a percent of the order's TP to use as a Break Even amount
+_bev032=     Ex: '50' for half of TP, '25' for a quarter, etc.
+break_even_percent=20
+_bev040=     Enter an additional amount of profit to secure (in pips) when the SL is moved to Break Even
+break_even_profit=5
+_psm020=---- Candlestick Trailing Stop Settings ----
+_psm021=     If using the 'Candlestick Trailing Stop' method above
+_psm022=     Wait for Break Even before activating the Candlestick Trailing Stop?
+_psm023=     Uses the values from 'Break Even Settings' area above
+candle_ts_be=false
+_psm024=     Enter the amount of previous bars to search for new candle highs / lows as profit increases
+candle_ts_previous_bars=5
+_psm025=     Choose the timeframe to use for finding previous candle highs / lows
+_psm026=     Select 'Chart_TF' to use the chart's current TF (dynamic)
+candle_ts_timeframe=30
+_jum001=---- Jumping Stop Settings ----
+_jum002=     If using the 'Jumping Stop' method above
+_jum003=     Wait for Break Even before activating the Jumping Stop?
+_jum004=     Uses the values from 'Break Even Settings' area above
+jumping_stop_be=true
+_jum010=     Choose how to determine the size of the Jumping Stop
+_jum011=     -> Manual Input: Use manually specified Jumping Stop size
+_jum012=     -> ATR Method: Calculate dynamic Jumping Stop size from ATR automatically
+_jum013=     -> Percent of TP: Sets Jumping Size size to a percentage of the order's take profit
+jumping_stop_method=1
+_jum020=     If using 'Manual Input' Jumping Stop size method above
+_jum021=     Enter an increment (in pips) that the SL should jump forward by as profit increases
+_jum022=     This amount does not apply if using the Auto Calculate method
+jumping_stop_pips=25
+_jum030=     If using 'Auto Calculate' Jumping Stop size method above
+_jum031=     The calculated ATR Jumping Stop amount will be multiplied by this number
+_jum032=     You can quickly increase or decrease the size of the Jumping Stop by adjusting this multiplier
+_jum033=     Enter 1 for no adjustment
+jumping_stop_atr_multiplier=2
+_jum040=     If using 'Percent of TP' Jumping Stop size method above
+_jum041=     Enter a percent of the order's TP to use as a Jumping Stop amount
+_jum042=     Ex: '50' for half of TP, '25' for a quarter, etc.
+jumping_stop_percent=20
+_trs001=---- Trailing Stop Settings ----
+_trs002=     If using the 'Trailing Stop' method above
+_trs003=     Wait for Break Even before activating the Trailing Stop?
+_trs004=     Uses the values from 'Break Even Settings' area above
+trailing_stop_be=true
+_trs010=     Choose how to determine the size of the Trailing Stop
+_trs011=     -> Manual Input: Use manually specified Trailing Stop size
+_trs012=     -> ATR Method: Calculate dynamic Trailing Stop size from ATR automatically
+_trs013=     -> Percent of TP: Sets Trailing Stop size to a percentage of the order's take profit
+trailing_stop_method=1
+_trs020=     If using 'Manual Input' Trailing Stop size method above
+_trs021=     Enter an amount (in pips) that the SL should trail behind the current price as profit increases
+_trs022=     This amount does not apply if using the Auto Calculate method
+trailing_stop_pips=30
+_trs030=     If using 'Auto Calculate' Trailing Stop size method above
+_trs031=     The calculated ATR Trailing Stop amount will be multiplied by this number
+_trs032=     You can quickly increase or decrease the size of the Trailing Stop by adjusting this multiplier
+_trs033=     Enter 1 for no adjustment
+trailing_stop_atr_multiplier=2
+_trs040=     If using 'Percent of TP' Trailing Stop size method above
+_trs041=     Enter a percent of the order's TP to use as a Trailing Stop amount
+_trs042=     Ex: '50' for half of TP, '25' for a quarter, etc.
+trailing_stop_percent=20
+_trs050=     If desired, you can have the Trailing Stop halt when the order reaches this much profit (in pips)
+_trs051=     Enter 0 to always trail
+stop_trailing_after_x_pips=0
+_dte100= 
+_dte101=#### TIME AND DATE SETTINGS ####
+_dte000=---- Date Settings ----
+_dte001=     Prevent opening new trades on Fridays?
+no_trades_on_friday=false
+_dte010=---- Time Window Settings ----
+_dte011=     Only look for trades during a certain time window each day?
+use_time_window=false
+_dte012=     If using the time window above
+_dte013=     Enter the time that trading can start (based on broker's time)
+time_window_open=12:00
+_dte014=     If using the time window above
+_dte015=     Enter the time that trading will stop (based on broker's time)
+time_window_close=20:00
+_ord100= 
+_ord101=#### ORDER SETTINGS ####
+_ord001=---- Order Delay Settings ----
+_ord002=     After a trade closes, wait a certain amount of time before placing new orders?
+_ord003=     Useful to prevent over trading of the same signal
+_ord004=     -> No Delay: After any trade closes, new orders can be placed immediately if needed
+_ord005=     -> Delay After Loss: After a losing trade closes, wait X minutes before looking for new trades
+_ord006=     -> Delay After All: After any trade closes, wait X minutes before looking for new trades
+order_delay_method=2
+_ord007=     If using an order delay method above
+_ord008=     Enter the delay (in minutes) before a new order can be opened
+order_delay_minutes=60
+_ord010=---- Misc. Order Settings ----
+_ord011=     Specify the maximum allowed price deviation (in pips) from bid / ask when opening a new trade
+entry_price_slippage=10
+_ord020=     Force trade alternation between buy and sell orders evenly?
+force_zig_zag=false
+_ord030=---- Order Verification Settings ----
+_ord031=     Verify that new orders show up properly in your account when placed?
+verify_trades=true
+_ord032=     If verification is enabled above, enter the amount of times to retry verification if it fails
+verify_trade_max_retries=10
+_ord033=     If verification is enabled above, enter the minimum amount of time to wait between each retry in seconds
+verify_trade_sleep_time=4.0
+_ord034=     If verification is enabled above, enter the maximum amount of time to wait between each retry in seconds
+verify_trade_max_sleep_time=15.0
+_exp100= 
+_exp101=#### ORDER EXPIRATION SETTINGS ####
+_exp000=---- Trade Expiration Settings ----
+_exp001=     Choose if and how to expire open trades
+_exp002=     -> No Expiration: Trade expiration disabled
+_exp003=     -> Close At EOD: Close open trades at end of day
+_exp004=     -> SAR At EOD: Close open trades at end of day and open reverse trade
+_exp005=     -> Close After X Hours: Close open trades after X hours
+_exp006=     -> SAR After X Hours: Close open trades after X hours and open reverse trade
+te_method=0
+_exp010=---- Expire After X Hours Settings ----
+_exp011=     If using any 'After X hours' expiration method above
+_exp012=     Enter the amount of hours to use as expiration
+trade_expiration_hours=96
+_exp020=---- Profitable Trade Expiration Settings ----
+_exp021=     Apply trade expiration settings to profitable open trades as well?
+_exp022=     By default only losing trades will expire
+te_expire_if_profitable=false
+_vis100= 
+_vis101=#### VISUAL SETTINGS ####
+_vis000=---- Logo Settings ----
+_vis001=     Disable the large robot logo from showing in the top left corner?
+disable_logo=false
+_vis010=---- Chart Formatting ----
+_vis011=     Choose what the robot should format on the chart when loaded
+_vis012=     NOTE: This will only apply basic colors and chart settings
+_vis013=     You should still apply the robot's template first to see its indicators (Template > Robot Name)
+_vis014=     -> Nothing: Leave chart as is, don't apply settings or colors
+_vis015=     -> Colors Only: Apply default robot color scheme to chart
+_vis016=     -> Settings Only: Apply default robot properties to chart
+_vis017=     -> Everything: Apply color scheme and settings to chart
+chart_formatting=3
+_vis020=---- Font Readability ----
+_vis021=     The font size used for on-screen text
+font_size=8
+_vis022=     The font face used for on-screen text
+font_face=Arial
+_vis030=---- Font Colors ----
+_vis031=     The default font color of on-screen text
+color_normal=2894892
+_vis032=     The font color of on-screen text when displaying an error
+color_error=4210943
+_vis033=     The font color of on-screen text when displaying an activity
+color_active=2894892
+_vis034=     The font color of on-screen text when displaying inactivity
+color_inactive=6908265
+_int100= 
+_int101=#### INTERNAL SETTINGS ####
+_int000=---- Core Settings ----
+_int001=     A unique identifying number for this robot's trades (DO NOT MODIFY)
+magic_number=47298
+_int010=---- Debug Settings ----
+_int011=     On startup, print all hardcoded account licenses for this EA in experts log?
+print_licenses=false
+_int012=     Draw an arrow on-screen every time a stop loss is modified? (useful for debugging)
+show_sl_modifications=false
+_int013=     Enable extra logging information? (DO NOT MODIFY)
+debug_mode=false
+_int014=     Disable basic trading functionality? (DO NOT MODIFY)
+sleep_mode=false
+_odin100= 
+_odin101=#### ODIN SETTINGS ####
+_odin000=---- Odin Signal Method Settings ----
+_odin001=     Choose how to use Odin's trend signals
+_odin002=     -> Inactive: Odin indicator completely disabled
+_odin003=     -> Low Risk: Extra criteria before deeming a signal valid (less trades, more accuracy)
+_odin004=     -> Confirmation Only: Confirms direction only for other indicators (DANGEROUS)
+odin_method=1
+_odin010=---- Odin General Settings ----
+_odin011=     Reverse signals from Odin method?
+odin_signal_reverse=false
+_odin020=     Choose what bar to use for signal generation
+_odin021=     -> Current Bar: Uses the current bar's values (less signal lag)
+_odin022=     -> Previous Bar: Uses the most recent closed bar's values (more confirmation)
+odin_bar=1
+_odin030=     Exit orders when opposing signals appear?
+odin_signal_exit=false
+
+
+
+
+
+
+
+
+
+
+
+
+FOREX EXPERT ADVISORS,
+BINARY and MANUAL TRADING SYSTEM 
+ALL UNLIMITED VERSION  FREE & PAID
+Channel : https://t.me/fxyashwinstore
+Channel : https://t.me/fxyashwinbest
+Telegram Conact : @realprofitbo
+Email : realprofitbo@gmail.com
+
+
+DEAR MEMBERS KEEP SUPPORT FOR ALL🙏🙏   
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOREX EXPERT ADVISORS,
+BINARY and MANUAL TRADING SYSTEM 
+ALL UNLIMITED VERSION  FREE & PAID
+Channel : https://t.me/fxyashwinstore
+Channel : https://t.me/fxyashwinbest
+Telegram Conact : @realprofitbo
+Email : realprofitbo@gmail.com
+
+
+DEAR MEMBERS KEEP SUPPORT FOR ALL🙏🙏   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOREX EXPERT ADVISORS,
+BINARY and MANUAL TRADING SYSTEM 
+ALL UNLIMITED VERSION  FREE & PAID
+Channel : https://t.me/fxyashwinstore
+Channel : https://t.me/fxyashwinbest
+Telegram Conact : @realprofitbo
+Email : realprofitbo@gmail.com
+
+
+DEAR MEMBERS KEEP SUPPORT FOR ALL🙏🙏   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOREX EXPERT ADVISORS,
+BINARY and MANUAL TRADING SYSTEM 
+ALL UNLIMITED VERSION  FREE & PAID
+Channel : https://t.me/fxyashwinstore
+Channel : https://t.me/fxyashwinbest
+Telegram Conact : @realprofitbo
+Email : realprofitbo@gmail.com
+
+
+DEAR MEMBERS KEEP SUPPORT FOR ALL🙏🙏   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOREX EXPERT ADVISORS,
+BINARY and MANUAL TRADING SYSTEM 
+ALL UNLIMITED VERSION  FREE & PAID
+Channel : https://t.me/fxyashwinstore
+Channel : https://t.me/fxyashwinbest
+Telegram Conact : @realprofitbo
+Email : realprofitbo@gmail.com
+
+
+DEAR MEMBERS KEEP SUPPORT FOR ALL🙏🙏   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOREX EXPERT ADVISORS,
+BINARY and MANUAL TRADING SYSTEM 
+ALL UNLIMITED VERSION  FREE & PAID
+Channel : https://t.me/fxyashwinstore
+Channel : https://t.me/fxyashwinbest
+Telegram Conact : @realprofitbo
+Email : realprofitbo@gmail.com
+
+
+DEAR MEMBERS KEEP SUPPORT FOR ALL🙏🙏   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOREX EXPERT ADVISORS,
+BINARY and MANUAL TRADING SYSTEM 
+ALL UNLIMITED VERSION  FREE & PAID
+Channel : https://t.me/fxyashwinstore
+Channel : https://t.me/fxyashwinbest
+Telegram Conact : @realprofitbo
+Email : realprofitbo@gmail.com
+
+
+DEAR MEMBERS KEEP SUPPORT FOR ALL🙏🙏   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FOREX EXPERT ADVISORS,
+BINARY and MANUAL TRADING SYSTEM 
+ALL UNLIMITED VERSION  FREE & PAID
+Channel : https://t.me/fxyashwinstore
+Channel : https://t.me/fxyashwinbest
+Telegram Conact : @realprofitbo
+Email : realprofitbo@gmail.com
+
+
+DEAR MEMBERS KEEP SUPPORT FOR ALL🙏🙏   
