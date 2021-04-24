@@ -1,0 +1,94 @@
+The new version EA EURONIS v6500
+
+
+To get EA EURONIS for a live account:
+1) register on the www.forexover.com (if you have not already registered)
+2) open the account(s) by affiliate links in one of the brokers listed on this site
+3) add the account to the list of accounts in the Personal Area on the "My Accounts" page
+4) after the checking, change the account status to "green" (accepted) or "red" (declined)
+5) If the status is "green", then connect the strategy EURONIS to your account on the page "My strategy" in the Personal Area.
+6) Download the archive with the EA and all files from http://forexover.com/en/podrobno.php?id=2 (bottom of page) and install it. The license key will automatically be created.
+
+To get EA EURONIS for a demo account:
+1) register on the www.forexover.com (if you have not already registered)
+2) open a demo account in one of the brokers listed on this site
+3) add a demo account in the list of accounts in the Personal Area on the page "My Accounts", set the flag "Demo account" and fill the field "Investor Password".
+4) after the checking, change the account status to "green" (accepted) or "red" (declined)
+5) If the status is "green", download the archive with the EA and all the files from http://forexover.com/en/podrobno.php?id=2 (bottom of page) and install it. The license key will automatically be created.
+Connect the strategy EURONIS in this case is not necessary!
+
+The english version of the manual is coming soon....
+
+
+
+The EA installation procedure by the profiles.
+
+Installation should be carried out of the EA trading time! Trading time for night pairs (ERUCAD and GBPCAD) is from 22 to 00 CET, when used day trading (AUDNZD, ZUDSGD, NZDSGD) - from 11 to 20 CET.
+Attention! Do not instal the trading terminal to the "C:/Programm Files" directory! Windows7 block file writing on this directory and EA could not work there! If you have Window7 install the trading terminal on the another drive or on the drive "C" but into the directory "C:/Users/Public"!
+Before coping files turn off the trading terminal!
+1) Copy files
+   Douwnload the archive with an adviser from the web-site ForexOver in the end of this page http://forexover.com/en/podrobno.php?id=2
+   - Open the archiv and:
+   - Copy the EA file "euronis_v6500.ex4" to the directory "experts" of MetaTrader
+   - Copy the contents of the folder "experts-files" to the directory "experts / files" of MetaTrader
+   - Copy the contents of the folder "experts-libraries" to the directory "experts / labraries" terminal MetaTrader
+   - Copy the contents of the folder "prifiles eng" to the directory "profiles" of the terminal MetaTrader. In this case it is better to copy only the folder that has the name of your broker.
+2) Run a terminal MetaTrader
+3) open the window "View-> "Market watch", if it is not open, click the right mouse button and select "Show all symbols"
+4) open the window "View-> Navigator" if it is not open
+5) open the menu "File-> Profiles and select the profile for your chosen broker and risk levels. Depending on the broker and the type of account can be profiles for night trading (EURCAD and GBPCAD from 22 to 00 CET) and for night (EURCAD and GBPCAD from 22 to 00 CET) with day trading (AUDNZD, AUDSGD and NZDSGD from 11 to 20 CET). Be careful - day trading is less stable and has not been verified. When trading day, watch out for important news of rates changin U.S. and New Zealand and do not trade these days by turning off the EA from 11 to 20 CET.
+
+   Legend settings Profile name:
+   low-base - standard base settings for currency pairs EURCAD GBPCAD, low risks (similar to base the settings of previous versions)
+   mid-base - standard base settings for currency pairs EURCAD GBPCAD, middle risk (similar to base settings of previous versions)
+   These settings have long been tested in live trading and they are at first recommended settings.
+
+   low-new - new experimental settings for currency pairs EURCAD GBPCAD, low risks
+   mid-new - new experimental settings for currency pairs EURCAD GBPCAD, middle risk
+   In these settings, use all of possible methods to enter and exit from the market.
+
+   2xmid-base - standard base settings for currency pairs EURCAD GBPCAD, middle risk, combined trade modes CrossOverMode and CrossNormalMode
+   2xmid-new - new experimental settings for currency pairs EURCAD GBPCAD, middle risk, combined trade modes CrossOverMode and CrossNormalMode
+   A combination of trade - this is a combination of twoo modes of the trading - CrossOverMode (trading through a dollar) and CrossNormalMode (cross pair trading).
+
+   mid-base-new - standard base vs new experimental settings for currency pairs EURCAD GBPCAD, middle risk
+
+   low-day - the settings for trading during the day in the currency pair AUD-NZD-SGD, low risk
+   mid-day - the settings for trading during the day in the currency pair AUD-NZD-SGD, mid risk
+   Day trading can not be realized at all brokers! In conjunction with the night trading can expect more bonuses, but less stability.
+
+6) After selecting a profile loaded charts with installed EA's on them. Select menu "Window-> Vertical" to align the charts by the window size.
+7) Make sure that the "Advisors" on and wait until loaded EAs on all charts, depending on the settings, it may take some time until the EA download quotes history.
+8) check the EA trading time. It wrotes it on every chart in the comments line "Trading Time CET (MSK-2):". It must always be equal to Central European Time!
+10) now you need to reboot the terminal, dont forget to do it!!!
+EA is ready to work!
+
+Attention! If you want to change the profile, before that you need to disable the button "Advisors"!
+Attention! For the types of accounts with a high level StopOutLevel (MarginCall) is not recommended to install middle risks settings!
+
+The list of included in the archive profiles:
+Alpari-m-c - profiles for Alpari-micro and Alpari-classic account types
+Alpari-ndd - profiles for Alpari-NDD account types
+Axis - profiles for AxiTrader accounts
+BMFN - profiles for BMFN-MT-CFD account types
+Exness-m - profiles for Exness-mini account types
+FBS-s - profiles for FBS-standard account types
+FBS-u - profiles for FBS-unlimit (ECN) account types
+FinFX-e - profiles for FinFX-ECN account types
+FinFX-n - profiles for FinFX-normal account types
+Forex.com-f - profiles for Forex.com-4 digits (FXF) account types
+Forex.com-p - profiles for Forex.com-5 digits (Pro) account types
+Forex4you-p - profiles for Forex4you-Pro account types
+FXCC - profiles for FXCC accounts
+FXTrend-e - profiles for FXTrend-ECN account types
+Gallant - profiles for Gallant accounts
+Hantec - profiles for Hantec accounts
+HotForex - profiles for HotForex accounts
+LiteForex-fs - profiles for LiteForex-FloatingSpreads account types
+NordFX-s - profiles for NordFX-standard account types
+NordFX-e - profiles for NordFX-ECN account types
+Pepperstone-s - profiles for Pepperstone-standard account types
+RoboForex-p-e - profiles for RoboForex-cent-pro, RoboForex-standard-pro and RoboForex-ECN account types
+RVD - profiles for RVD Markets account types
+SynergyFX-e - profiles for SynergyFX-ECN account types
+TradersTrust - profiles for TradersTrust accounts
